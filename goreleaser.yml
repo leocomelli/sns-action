@@ -1,0 +1,25 @@
+project_name: sns-action
+env:
+  - GO111MODULE=on
+  - GOPROXY=https://proxy.golang.org
+before:
+  hooks:
+    - go mod download
+builds:
+  -
+    binary: sns-action
+    id: sns-action
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -buildmode
+      - exe
+    goos:
+      - linux
+    goarch:
+      - amd64
+archives:
+  -
+    id: sns-action
+    format: binary
+    name_template: "{{ .ProjectName }}"

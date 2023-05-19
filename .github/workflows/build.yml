@@ -1,0 +1,22 @@
+name: Build
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test-build:
+    name: Test & Build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: setup
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.20.4'
+
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: golangci-lint
+      uses: golangci/golangci-lint-action@v2
