@@ -1,7 +1,7 @@
 # sns-action
 Publish a message on an SNS topic using OpenID Connect (OIDC) credentials. The OIDC allws GitHub Actions workflows to access resources in AWS, without needing to store the AWS credential as long-lived GitHub secrets.
 
-To know more about OIDC check the link below.
+To learn more about the OIDC, visit the link below.
 * [About security hardening with OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 * [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
 
@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Publish a message
-        uses: leocomelli/sns-action@main
+        uses: leocomelli/sns-action@v0.2
         with:
           topic: arn:aws:sns:us-east-1:999999999999:my-topic
           message: "Notify about a new deployment"
