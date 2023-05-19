@@ -7,15 +7,19 @@ branding:
 
 inputs:
   topic:
+    description: "Topic ARN to send message to"
     required: true
     type: string
   message:
+    description: "Message to send"
     required: true
     type: string
   role:
+    description: "Role ARN to assume"
     required: true
     type: string
   region:
+    description: "Region to use"
     required: true
     type: string
 
@@ -38,7 +42,7 @@ runs:
       uses: robinraju/release-downloader@v1.8
       with:
         repository: "leocomelli/sns-action"
-        latest: true
+        tag: "v0.2"
         fileName: "sns-action"
 
     - name: Publish a message
