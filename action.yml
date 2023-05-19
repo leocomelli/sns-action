@@ -37,7 +37,7 @@ runs:
       shell: bash
       run: |
         chmod +x sns-action
-        ID=$(./${{ github.action_path }}/sns-action \
+        ID=$(./sns-action \
           --topic "${{ inputs.topic }}" \
           --message "${{ inputs.message }}" \
           --role "${{ inputs.role }}")
