@@ -25,16 +25,19 @@ runs:
   using: "composite"
 
   steps:
-    - name: Set up Go
-      uses: actions/setup-go@v4
+    - name: Download sns-action
+      uses: robinraju/release-downloader@v1.8
       with:
-        go-version: "1.20"
+        repository: "leocomelli/sns-action"
+        latest: true
+        fileName: "sns-action"
 
     - name: Publish a message
       id: publish
       shell: bash
       run: |
-        ID=$(go run ${{ github.action_path }}/main.go \
+        chmod +x sns-action
+        ID=$(./${{ github.action_path }}/sns-action \
           --topic "${{ inputs.topic }}" \
           --message "${{ inputs.message }}" \
           --role "${{ inputs.role }}")
